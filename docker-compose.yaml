@@ -29,7 +29,7 @@ services:
       start_period: 15s
 
   betterme-frontend:
-    image: voloshmiak/better-me-frontend:0.0.3
+    image: voloshmiak/better-me-frontend:0.0.6
     container_name: betterme-frontend
     hostname: betterme-frontend
     networks:
@@ -41,9 +41,7 @@ services:
       instant-wellness-kits:
         condition: service_healthy
     environment:
-      - VITE_PORT=5173
-      - VITE_HOST=localhost
-      - VITE_API_URL=instant-wellness-kits:80
+      - VITE_API_URL=http://localhost:80
 
   postgres:
     image: postgres:18
