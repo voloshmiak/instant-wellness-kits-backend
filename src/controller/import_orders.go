@@ -9,17 +9,17 @@ import (
 	"net/http"
 )
 
-type ImportHandler struct {
+type ImportController struct {
 	uc *usecase.ImportOrdersUseCase
 }
 
-func NewImportHandler(uc *usecase.ImportOrdersUseCase) *ImportHandler {
-	return &ImportHandler{
+func NewImportController(uc *usecase.ImportOrdersUseCase) *ImportController {
+	return &ImportController{
 		uc: uc,
 	}
 }
 
-func (h *ImportHandler) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
+func (h *ImportController) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 	err := r.ParseMultipartForm(10 << 20)
 	if err != nil {
 		http.Error(rw, "Failed to parse multipart form", http.StatusBadRequest)

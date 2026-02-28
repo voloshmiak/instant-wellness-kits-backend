@@ -1,6 +1,6 @@
 services:
   instant-wellness-kits:
-    image: voloshmiak/instant-wellness-kits:0.0.4
+    image: voloshmiak/instant-wellness-kits:0.0.5
     container_name: instant-wellness-kits
     hostname: instant-wellness-kits
     networks:
@@ -21,6 +21,29 @@ services:
       - DB_USER_PASSWORD=password
       - DB_HOST=postgres
       - DB_PORT=5432
+    healthcheck:
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:80/health" ]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+  betterme-frontend:
+    image: voloshmiak/better-me-frontend:0.0.3
+    container_name: betterme-frontend
+    hostname: betterme-frontend
+    networks:
+      - betterme-network
+    ports:
+      - "5173:80"
+    restart: on-failure
+    depends_on:
+      instant-wellness-kits:
+        condition: service_healthy
+    environment:
+      - VITE_PORT=5173
+      - VITE_HOST=localhost
+      - VITE_API_URL=instant-wellness-kits:80
 
   postgres:
     image: postgres:18

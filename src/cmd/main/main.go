@@ -8,10 +8,11 @@ import (
 	"InstantWellnessKits/src/repository/postgres/order"
 	tax_rate "InstantWellnessKits/src/repository/postgres/tax-rate"
 	"InstantWellnessKits/src/usecase"
-	"github.com/rs/cors"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/rs/cors"
 )
 
 const (
@@ -58,13 +59,15 @@ func run() error {
 	listUsecase := usecase.NewListOrdersUseCase(orderRepo)
 	importUsecase := usecase.NewImportOrdersUseCase(geocoderApi, orderRepo, taxRateRepo)
 
-	importController := controller.NewImportHandler(importUsecase)
+	importController := controller.NewImportController(importUsecase)
 	createController := controller.NewCreateController(createUsecase)
-	getController := controller.NewGetHandler(listUsecase)
+	getController := controller.NewGetController(listUsecase)
+	healthController := controller.NewHealthController()
 
 	router.Handle("POST /orders/import", importController)
 	router.Handle("POST /orders", createController)
 	router.Handle("GET /orders", getController)
+	router.Handle("GET /health", healthController)
 
 	c := cors.New(cors.Options{
 		AllowedOrigins:   []string{"*"},

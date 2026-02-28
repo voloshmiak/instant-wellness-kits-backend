@@ -32,17 +32,17 @@ type total struct {
 	Grand  decimal.Decimal `json:"grand"`
 }
 
-type GetHandler struct {
+type GetController struct {
 	uc *usecase.ListOrdersUseCase
 }
 
-func NewGetHandler(uc *usecase.ListOrdersUseCase) *GetHandler {
-	return &GetHandler{
+func NewGetController(uc *usecase.ListOrdersUseCase) *GetController {
+	return &GetController{
 		uc: uc,
 	}
 }
 
-func (h *GetHandler) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
+func (h *GetController) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 	q := r.URL.Query()
 
 	params := entity.ListParams{
