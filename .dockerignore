@@ -1,0 +1,10 @@
+.git
+.idea
+Dockerfile
+.dockerignore
+*.log
+env.yaml
+LICENSE
+README.md
+redeploy.sh
+.env

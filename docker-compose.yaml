@@ -1,6 +1,6 @@
 services:
   instant-wellness-kits:
-    image: voloshmiak/instant-wellness-kits:0.0.5
+    image: voloshmiak/instant-wellness-kits:1.0.0
     container_name: instant-wellness-kits
     hostname: instant-wellness-kits
     networks:
@@ -29,7 +29,7 @@ services:
       start_period: 15s
 
   betterme-frontend:
-    image: voloshmiak/better-me-frontend:0.0.6
+    image: voloshmiak/better-me-frontend:1.0.0
     container_name: betterme-frontend
     hostname: betterme-frontend
     networks:
