@@ -7,6 +7,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"strings"
+
+	"github.com/shopspring/decimal"
 )
 
 type Repository struct {
@@ -85,6 +87,14 @@ func (r *Repository) List(ctx context.Context, params entity.ListParams) (*entit
 		return nil, err
 	}
 
+	var globalOrders int
+	var globalTax, globalGrand decimal.Decimal
+	if err := r.conn.QueryRowContext(ctx,
+		"SELECT COUNT(*), COALESCE(SUM(tax_amount), 0), COALESCE(SUM(total_amount), 0) FROM orders",
+	).Scan(&globalOrders, &globalTax, &globalGrand); err != nil {
+		return nil, err
+	}
+
 	if params.Limit <= 0 {
 		params.Limit = 20
 	}
@@ -135,7 +145,13 @@ func (r *Repository) List(ctx context.Context, params entity.ListParams) (*entit
 		return nil, err
 	}
 
-	return &entity.ListResult{Orders: orders, Total: total}, nil
+	return &entity.ListResult{
+		Orders:       orders,
+		Total:        total,
+		GlobalOrders: globalOrders,
+		GlobalTax:    globalTax,
+		GlobalGrand:  globalGrand,
+	}, nil
 }
 
 func (r *Repository) CreateBatch(ctx context.Context, orders []*entity.Order) error {

@@ -8,11 +8,14 @@ import (
 	"net/http"
 	"strconv"
 	"time"
+
+	"github.com/shopspring/decimal"
 )
 
 type listOrdersResponse struct {
-	Orders     []*entity.Order `json:"orders"`
-	Pagination pagination      `json:"pagination"`
+	Orders      []*entity.Order `json:"orders"`
+	Pagination  pagination      `json:"pagination"`
+	GlobalTotal total           `json:"globalTotal"`
 }
 
 type pagination struct {
@@ -20,6 +23,12 @@ type pagination struct {
 	Page       int `json:"page"`
 	Limit      int `json:"limit"`
 	TotalPages int `json:"totalPages"`
+}
+
+type total struct {
+	Orders int             `json:"orders"`
+	Tax    decimal.Decimal `json:"tax"`
+	Grand  decimal.Decimal `json:"grand"`
 }
 
 type GetHandler struct {
@@ -77,6 +86,11 @@ func (h *GetHandler) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 			Page:       params.Page,
 			Limit:      params.Limit,
 			TotalPages: totalPages,
+		},
+		GlobalTotal: total{
+			Orders: result.GlobalOrders,
+			Tax:    result.GlobalTax,
+			Grand:  result.GlobalGrand,
 		},
 	}
 

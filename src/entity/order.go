@@ -80,6 +80,9 @@ type ListParams struct {
 }
 
 type ListResult struct {
-	Orders []*Order
-	Total  int
+	Orders       []*Order
+	Total        int
+	GlobalOrders int
+	GlobalTax    decimal.Decimal
+	GlobalGrand  decimal.Decimal
 }

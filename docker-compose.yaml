@@ -1,6 +1,6 @@
 services:
   instant-wellness-kits:
-    image: voloshmiak/instant-wellness-kits:0.0.2
+    image: voloshmiak/instant-wellness-kits:0.0.3
     container_name: instant-wellness-kits
     hostname: instant-wellness-kits
     networks:
