@@ -80,9 +80,12 @@ type ListParams struct {
 }
 
 type ListResult struct {
-	Orders       []*Order
-	Total        int
-	GlobalOrders int
-	GlobalTax    decimal.Decimal
-	GlobalGrand  decimal.Decimal
+	Orders        []*Order
+	Total         int
+	GlobalOrders  int
+	GlobalTax     decimal.Decimal
+	GlobalGrand   decimal.Decimal
+	Last24hOrders int
+	Last24hTax    decimal.Decimal
+	Last24hGrand  decimal.Decimal
 }

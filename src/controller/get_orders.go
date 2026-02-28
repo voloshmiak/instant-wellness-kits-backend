@@ -16,6 +16,7 @@ type listOrdersResponse struct {
 	Orders      []*entity.Order `json:"orders"`
 	Pagination  pagination      `json:"pagination"`
 	GlobalTotal total           `json:"globalTotal"`
+	Last24h     total           `json:"last24h"`
 }
 
 type pagination struct {
@@ -91,6 +92,11 @@ func (h *GetHandler) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 			Orders: result.GlobalOrders,
 			Tax:    result.GlobalTax,
 			Grand:  result.GlobalGrand,
+		},
+		Last24h: total{
+			Orders: result.Last24hOrders,
+			Tax:    result.Last24hTax,
+			Grand:  result.Last24hGrand,
 		},
 	}
 

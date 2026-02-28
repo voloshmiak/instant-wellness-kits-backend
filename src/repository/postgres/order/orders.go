@@ -95,6 +95,14 @@ func (r *Repository) List(ctx context.Context, params entity.ListParams) (*entit
 		return nil, err
 	}
 
+	var last24hOrders int
+	var last24hTax, last24hGrand decimal.Decimal
+	if err := r.conn.QueryRowContext(ctx,
+		"SELECT COUNT(*), COALESCE(SUM(tax_amount), 0), COALESCE(SUM(total_amount), 0) FROM orders WHERE timestamp >= NOW() - INTERVAL '24 hours'",
+	).Scan(&last24hOrders, &last24hTax, &last24hGrand); err != nil {
+		return nil, err
+	}
+
 	if params.Limit <= 0 {
 		params.Limit = 20
 	}
@@ -104,7 +112,8 @@ func (r *Repository) List(ctx context.Context, params entity.ListParams) (*entit
 	offset := (params.Page - 1) * params.Limit
 
 	query := fmt.Sprintf(`
-		SELECT id, latitude, longitude, subtotal, composite_tax_rate, tax_amount, total_amount, breakdown, jurisdictions, timestamp
+		SELECT id, latitude, longitude, subtotal, composite_tax_rate, 
+		       tax_amount, total_amount, breakdown, jurisdictions, timestamp
 		FROM orders
 		%s
 		ORDER BY timestamp DESC
@@ -146,11 +155,14 @@ func (r *Repository) List(ctx context.Context, params entity.ListParams) (*entit
 	}
 
 	return &entity.ListResult{
-		Orders:       orders,
-		Total:        total,
-		GlobalOrders: globalOrders,
-		GlobalTax:    globalTax,
-		GlobalGrand:  globalGrand,
+		Orders:        orders,
+		Total:         total,
+		GlobalOrders:  globalOrders,
+		GlobalTax:     globalTax,
+		GlobalGrand:   globalGrand,
+		Last24hOrders: last24hOrders,
+		Last24hTax:    last24hTax,
+		Last24hGrand:  last24hGrand,
 	}, nil
 }
 
