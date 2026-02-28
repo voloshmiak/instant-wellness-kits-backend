@@ -1,0 +1,86 @@
+jurisdiction_type,jurisdiction_name,composite_rate,state_rate,county_rate,city_rate,special_rate,special_name
+State,New York State,0.04,0.04,0,0,0,
+County,Albany,0.08,0.04,0.04,0,0,
+County,Allegany,0.085,0.04,0.045,0,0,
+County,Bronx,0.08875,0.04,0,0.045,0.00375,MTA
+County,Kings,0.08875,0.04,0,0.045,0.00375,MTA
+County,New York,0.08875,0.04,0,0.045,0.00375,MTA
+County,Queens,0.08875,0.04,0,0.045,0.00375,MTA
+County,Richmond,0.08875,0.04,0,0.045,0.00375,MTA
+City,New York City,0.08875,0.04,0,0.045,0.00375,MTA
+City,Brooklyn,0.08875,0.04,0,0.045,0.00375,MTA
+City,Manhattan,0.08875,0.04,0,0.045,0.00375,MTA
+City,Staten Island,0.08875,0.04,0,0.045,0.00375,MTA
+County,Broome,0.08,0.04,0.04,0,0,
+County,Cattaraugus,0.08,0.04,0.04,0,0,
+City,Olean,0.08,0.04,0,0.04,0,
+City,Salamanca,0.08,0.04,0,0.04,0,
+County,Cayuga,0.08,0.04,0.04,0,0,
+City,Auburn,0.08,0.04,0,0.04,0,
+County,Chautauqua,0.08,0.04,0.04,0,0,
+County,Chemung,0.08,0.04,0.04,0,0,
+County,Chenango,0.08,0.04,0.04,0,0,
+City,Norwich,0.08,0.04,0,0.04,0,
+County,Clinton,0.08,0.04,0.04,0,0,
+County,Columbia,0.08,0.04,0.04,0,0,
+County,Cortland,0.08,0.04,0.04,0,0,
+County,Delaware,0.08,0.04,0.04,0,0,
+County,Dutchess,0.08125,0.04,0.0375,0,0.00375,MTA
+County,Erie,0.0875,0.04,0.0475,0,0,
+County,Essex,0.08,0.04,0.04,0,0,
+County,Franklin,0.08,0.04,0.04,0,0,
+County,Fulton,0.08,0.04,0.04,0,0,
+City,Gloversville,0.08,0.04,0,0.04,0,
+City,Johnstown,0.08,0.04,0,0.04,0,
+County,Genesee,0.08,0.04,0.04,0,0,
+County,Greene,0.08,0.04,0.04,0,0,
+County,Hamilton,0.08,0.04,0.04,0,0,
+County,Herkimer,0.0825,0.04,0.0425,0,0,
+County,Jefferson,0.08,0.04,0.04,0,0,
+County,Lewis,0.08,0.04,0.04,0,0,
+County,Livingston,0.08,0.04,0.04,0,0,
+County,Madison,0.08,0.04,0.04,0,0,
+City,Oneida,0.08,0.04,0,0.04,0,
+County,Monroe,0.08,0.04,0.04,0,0,
+County,Montgomery,0.08,0.04,0.04,0,0,
+County,Nassau,0.08625,0.04,0.0425,0,0.00375,MTA
+County,Niagara,0.08,0.04,0.04,0,0,
+County,Oneida,0.0875,0.04,0.0475,0,0,
+City,Rome,0.0875,0.04,0,0.0475,0,
+City,Utica,0.0875,0.04,0,0.0475,0,
+County,Onondaga,0.08,0.04,0.04,0,0,
+County,Ontario,0.075,0.04,0.035,0,0,
+County,Orange,0.08125,0.04,0.0375,0,0.00375,MTA
+County,Orleans,0.08,0.04,0.04,0,0,
+County,Oswego,0.08,0.04,0.04,0,0,
+City,Oswego,0.08,0.04,0,0.04,0,
+County,Otsego,0.08,0.04,0.04,0,0,
+County,Putnam,0.08375,0.04,0.04,0,0.00375,MTA
+County,Rensselaer,0.08,0.04,0.04,0,0,
+County,Rockland,0.08375,0.04,0.04,0,0.00375,MTA
+County,St. Lawrence,0.08,0.04,0.04,0,0,
+City,Ogdensburg,0.08,0.04,0,0.04,0,
+County,Saratoga,0.07,0.04,0.03,0,0,
+City,Saratoga Springs,0.07,0.04,0,0.03,0,
+County,Schenectady,0.08,0.04,0.04,0,0,
+County,Schoharie,0.08,0.04,0.04,0,0,
+County,Schuyler,0.08,0.04,0.04,0,0,
+County,Seneca,0.08,0.04,0.04,0,0,
+County,Steuben,0.08,0.04,0.04,0,0,
+County,Suffolk,0.08625,0.04,0.0425,0,0.00375,MTA
+County,Sullivan,0.08,0.04,0.04,0,0,
+County,Tioga,0.08,0.04,0.04,0,0,
+County,Tompkins,0.08,0.04,0.04,0,0,
+City,Ithaca,0.08,0.04,0,0.04,0,
+County,Ulster,0.08,0.04,0.04,0,0,
+County,Warren,0.07,0.04,0.03,0,0,
+City,Glens Falls,0.07,0.04,0,0.03,0,
+County,Washington,0.07,0.04,0.03,0,0,
+County,Wayne,0.08,0.04,0.04,0,0,
+County,Westchester,0.08375,0.04,0.04,0,0.00375,MTA
+City,Mount Vernon,0.08375,0.04,0,0.04,0.00375,MTA
+City,New Rochelle,0.08375,0.04,0,0.04,0.00375,MTA
+City,White Plains,0.08375,0.04,0,0.04,0.00375,MTA
+City,Yonkers,0.08875,0.04,0,0.045,0.00375,MTA
+County,Wyoming,0.08,0.04,0.04,0,0,
+County,Yates,0.08,0.04,0.04,0,0,
