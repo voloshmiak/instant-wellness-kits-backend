@@ -140,6 +140,7 @@
    ```
 2. Переконайтеся, що у вас встановлені Docker та docker-compose.
 3. Додайте ключ для Google Geocoder API. Перед запуском скрипта експортуйте його у змінні середовища:
+4. 
    ```bash
    export GEOCODING_API_KEY="ваш_ключ_google_geocoder_api"
    ```
